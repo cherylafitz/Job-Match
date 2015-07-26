@@ -2,7 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.job-desc {
-  width: 800px;
-  height: 600px;
+
+.cloud {
+
+}
+div[class*='job-desc'] {
+  max-width: 800px;
+  max-height: 600px;
+  min-width:400px;
+  min-height: 300px;
+}
+
+.job-title {
+
 }

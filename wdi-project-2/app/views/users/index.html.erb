@@ -1,9 +1,20 @@
 <h1>Home</h1>
-<div class="job-desc">
 
 
-<%=  %>
+<%= bootstrap_form_tag do |f| %>
+  <%= f.text_field :q, label: "skill" %>
+  <%= f.text_field :l, label: "location" %>
+  <%= f.primary "Search" %>
+<% end %>
+
+<div class="clouds">
+  <% @results.each do |result| %>
+  <h4 class='job-title'><%=  link_to result["jobtitle"], '#',:target => '_blank' %></h4>
+  <div class='job-desc'></div>
+  <% end %>
+
 
 
 </div>
+
 
