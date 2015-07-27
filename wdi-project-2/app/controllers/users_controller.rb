@@ -8,7 +8,7 @@ class UsersController < ApplicationController
  # @query = params[:q]
     # result.totalResults #indeed returns number of results
     # Indeed.get('f8abbe5539f14420', '4fb26405a44d7eb8')
-    search_results = search_results[0..3]
+    search_results = search_results[0..2]
     # @mult_results = result[2...3]
     job_descriptions = search_results.map {|result|
       # @job_title = result["jobtitle"]
@@ -24,7 +24,8 @@ class UsersController < ApplicationController
         'whether','before','although','nor','like','once','unless','now',
         'except','and/or','are','of','the','to','with','in','is','a','our',
         'for','an','we','including','not','at','on','etc.','them',',','be',
-        'no','by','about','work','all','well']
+        'no','by','about','work','all','well','&','has','will','you','they','other',
+        'from']
       words = job_desc_string.split.delete_if{|w| ignore_words.include?(w)}
       # removes punctuation
       words.each do |word|
@@ -39,6 +40,8 @@ class UsersController < ApplicationController
       end
     }
       @results = search_results
+
+      @job_descriptions = job_descriptions
 
       gon.job_desc = job_descriptions
 

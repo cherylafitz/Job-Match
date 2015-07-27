@@ -9,10 +9,13 @@
 
 <div class="clouds">
   <% @results.each do |result| %>
-  <h4 class='job-title'><%=  link_to result["jobtitle"], '#',:target => '_blank' %></h4>
-  <div class='job-desc'></div>
-  <% end %>
 
+  <div class="col-md-6 col-lg-6">
+
+  <h4 class='job-title text-center'><%=  link_to result["jobtitle"], '#',:target => '_blank' %></h4>
+  <div class='job-desc'></div>
+  </div>
+  <% end %>
 
 
 </div>
