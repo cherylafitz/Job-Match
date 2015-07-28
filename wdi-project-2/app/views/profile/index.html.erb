@@ -1,9 +1,8 @@
 <h1>My Profile</h1>
 <div class="row">
 <div class="col-md-6 col-lg-6">
-<%= bootstrap_form_for :user, :url => profile_path(@current_user) do |f| %>
-  <%= f.text_area :resume %>
-  <%= f.submit "Save Resume"%>
+<% if @current_user %>
+  <%= @current_user.inspect %>
 <% end %>
 </div>
 <div class="col-md-6 col-lg-6">

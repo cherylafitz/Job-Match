@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
 
   def index
-
   end
     # render :json => @data
     # @data = result.first
   # end
   def new
     @user = User.new
+  end
+
+  def edit
   end
 
   def create
@@ -29,8 +31,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    u = User.find params[:id]
-    u.update
+    @current_user.resume = params[:user][:resume]
+    @current_user.save
+
+    redirect_to users_path
   end
 
 

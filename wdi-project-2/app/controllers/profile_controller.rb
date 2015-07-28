@@ -29,7 +29,7 @@ class ProfileController < ApplicationController
   def update
     @current_user = current_user.id
     current_user.update params[:resume]
-    redirect_to profile_index_path
+    redirect_to profile_path
   end
 
   def add_job
@@ -40,7 +40,7 @@ class ProfileController < ApplicationController
     # @jobkey = job_params
     p @jobkey
     current_user.jobs.find_or_create_by jobkey:@jobkey
-    redirect_to profile_index_path
+    redirect_to profile_path
   end
 
   private

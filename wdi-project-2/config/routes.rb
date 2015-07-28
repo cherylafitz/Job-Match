@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'profile/index'
+  # get 'profile/index'
 
   root 'main#index'
 
@@ -9,9 +9,17 @@ Rails.application.routes.draw do
   # resources :jobs
 
   # put 'main/index' => 'main#index'
+  resources :users, except: [:new, :create, :edit, :show]
   get 'signup' => 'users#new'
-  post 'signup' => 'users#create', as: :users
-  get 'users/:id' => 'profile#update', as: 'profile'
+  get 'users/edit' => 'users#edit'
+  post 'signup' => 'users#create'
+  # get 'users/:id' => 'profile#update', as: 'profile'
+
+  get 'profile' => 'profile#index'
+  # get 'profile/edit' => 'users#edit'
+  # put 'profile/update' => 'users#update'
+
+  # resources :profile, except: [:new]
 
 
   # post 'profile/add_job' => 'profile#add_job'
