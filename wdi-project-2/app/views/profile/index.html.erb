@@ -1,28 +1,28 @@
 <h1>My Profile</h1>
 <div class="row">
 <div class="col-md-6 col-lg-6">
-
+<%= bootstrap_form_for :user, :url => profile_path(@current_user) do |f| %>
+  <%= f.text_area :resume %>
+  <%= f.submit "Save Resume"%>
+<% end %>
 </div>
+<div class="col-md-6 col-lg-6">
 <div class="clouds">
   <% @search_results.each do |result| %>
-
   <div class="col-md-6 col-lg-6">
-
   <h4 class='text-center'>
-
-    <%= link_to result["jobtitle"], @url,:target => '_blank', class: 'job-title' %>
+    <%= link_to result["jobtitle"], @url,:target => '_blank', class: 'job-title' %></h4>
     <div class='job-desc'></div>
   </div>
   <% end %>
-
-
-
 <%= @jobs.inspect %>
 
 <h3>Jobkeys</h3>
 
 
 <%= @jobkey_arr.inspect %>
-
 </div>
+</div>
+
+
 </div>

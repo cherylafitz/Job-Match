@@ -6,9 +6,13 @@ Rails.application.routes.draw do
 
   # resources :users
 
+  # resources :jobs
+
   # put 'main/index' => 'main#index'
   get 'signup' => 'users#new'
   post 'signup' => 'users#create', as: :users
+  get 'users/:id' => 'profile#update', as: 'profile'
+
 
   # post 'profile/add_job' => 'profile#add_job'
   get 'add_job/:id' => 'profile#add_job'

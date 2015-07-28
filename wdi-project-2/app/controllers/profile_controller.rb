@@ -17,6 +17,19 @@ class ProfileController < ApplicationController
     }
     gon.job_desc = job_descriptions
     @search_results = search_results
+
+    # render json: current_user
+    # render plain: @resume
+  end
+
+  def edit
+
+  end
+
+  def update
+    @current_user = current_user.id
+    current_user.update params[:resume]
+    redirect_to profile_index_path
   end
 
   def add_job
