@@ -1,0 +1,17 @@
+<%= render "shared/flash" %>
+
+<div class="clouds">
+  <% @search_results.each do |result| %>
+
+  <div class="col-md-6 col-lg-6">
+
+  <h4 class='text-center'>
+
+    <%= result["jobkey"] %>
+    <%= link_to result["jobtitle"], @url,:target => '_blank', class: 'job-title' %>
+  <a href="/add_job/<%= result['jobkey'] %> " class: 'btn btn-success btn-xs glyphicon glyphicon-plus' type="submit">+</a></h4>
+    <div class='job-desc'></div>
+  </div>
+  <% end %>
+
+</div>

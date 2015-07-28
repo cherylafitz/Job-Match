@@ -1,8 +1,22 @@
 Rails.application.routes.draw do
 
-  root 'users#index'
+  get 'profile/index'
 
-  resources :users
+  root 'main#index'
+
+  # resources :users
+
+  # put 'main/index' => 'main#index'
+  get 'signup' => 'users#new'
+  post 'signup' => 'users#create', as: :users
+
+  # post 'profile/add_job' => 'profile#add_job'
+  get 'add_job/:id' => 'profile#add_job'
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
