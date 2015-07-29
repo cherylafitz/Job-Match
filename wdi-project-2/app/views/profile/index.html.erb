@@ -1,25 +1,37 @@
-<h1>My Profile</h1>
+
+<h1 class="text-center">My Career Matches</h1>
 <div class="row">
 <div class="col-md-6 col-lg-6">
-<% if @current_user %>
-  <%= @current_user.inspect %>
-<% end %>
+
+  <h4>My Resume
+
+  <% if @current_user.resume %>
+  <%= link_to '', users_edit_path, class: 'icon-pad btn btn-info btn-xs glyphicon glyphicon-pencil' %>
+  <% else %>
+  <%= link_to '', users_edit_path, class: 'icon-pad btn btn-success btn-xs glyphicon glyphicon-plus' %>
+  <% end %>
+  </h4>
+  <p class="instructions text-info">Add text from your resume to match your experience to your saved jobs.</p>
+
+  <div class="resume">
+
+  </div>
 </div>
 <div class="col-md-6 col-lg-6">
 <div class="clouds">
-  <% @search_results.each do |result| %>
-  <div class="col-md-6 col-lg-6">
-  <h4 class='text-center'>
-    <%= link_to result["jobtitle"], @url,:target => '_blank', class: 'job-title' %></h4>
+  <% @jobs.each do |job| %>
+      <h4 class='text-center'>
+      <%= link_to job.title, @url,:target => '_blank' %>
+      <%= link_to "", jobs_path(job.id),  method: :delete, data: {confirm: "Are you sure?"}, class: "icon-pad btn btn-danger btn-xs glyphicon glyphicon-trash" %>
+    </h4>
     <div class='job-desc'></div>
-  </div>
+
   <% end %>
-<%= @jobs.inspect %>
-
-<h3>Jobkeys</h3>
 
 
-<%= @jobkey_arr.inspect %>
+
+<%= @job_arr & @resume_array%>
+
 </div>
 </div>
 

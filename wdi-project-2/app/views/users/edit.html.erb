@@ -1,3 +1,7 @@
+<h2>Edit Resume</h2>
+<p class="text-muted">For now, copy the text of your resume and paste it into the box. <em>Upload capability coming soon!</em></p>
+
+
 <%= bootstrap_form_for @current_user do |f| %>
   <%= f.text_area :resume %>
   <%= f.submit "Save Resume"%>

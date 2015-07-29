@@ -1,13 +1,42 @@
 
 body {
   font-family: 'Questrial', sans-serif;
+  color:#fff;
+  background-color: #222;
 }
+
+.login-status {
+  color: #777;
+}
+
+body
 
 .login-status {
   padding: 1em;
 }
 
-.navbar-form label {
+.form-group label {
   padding-right: 1em;
   padding-left: 1em;
+}
+
+.icon-pad {
+  margin-left: 1em;
+}
+
+div[class*='job-desc'],
+.resume {
+  max-width: 800px;
+  max-height: 600px;
+  min-width:400px;
+  min-height: 350px;
+}
+
+.search-form {
+  text-align: center;
+}
+
+.instructions {
+  margin: 2em 0;
+  font-size: 1.2em;
 }

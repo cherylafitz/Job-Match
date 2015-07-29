@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   # resources :users
 
-  # resources :jobs
 
   # put 'main/index' => 'main#index'
   resources :users, except: [:new, :create, :edit, :show]
@@ -15,8 +14,11 @@ Rails.application.routes.draw do
   post 'signup' => 'users#create'
   # get 'users/:id' => 'profile#update', as: 'profile'
 
+  # resources :jobs
+
+
   get 'profile' => 'profile#index'
-  # get 'profile/edit' => 'users#edit'
+  delete 'jobs/:id' => 'profile#destroy', as: :jobs
   # put 'profile/update' => 'users#update'
 
   # resources :profile, except: [:new]

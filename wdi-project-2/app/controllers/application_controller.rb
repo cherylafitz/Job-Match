@@ -17,39 +17,62 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def get_job_description_arr result, job_key
-      # @job = Job.new
+  def scrape_website job_key
+    @url = "http://www.indeed.com/viewjob?jk=#{job_key}"
+    response = RestClient.get(@url)
+    html = response.body
+    @document = Nokogiri::HTML(html)
+  end
 
-      # :jobkey = @jobkey
-      @url = "http://www.indeed.com/viewjob?jk=#{job_key}"
-      # gets full description data from indeed
-      response = RestClient.get(@url)
-      html = response.body
-      document = Nokogiri::HTML(html)
-      job_desc_string = document.css('td.snip span#job_summary.summary').text.downcase
-      # ignores filler words
-      ignore_words = ['and','that','but','or','as','if','when','than',
-        'because','while','where','after','so','though','since','until',
-        'whether','before','although','nor','like','once','unless','now',
-        'except','and/or','are','of','the','to','with','in','is','a','our',
-        'for','an','we','including','not','at','on','etc.','them',',','be',
-        'no','by','about','work','all','well','&','has','will','you','they','other',
-        'from','have','must','this','may','your','required']
-      words = job_desc_string.split.delete_if{|w| ignore_words.include?(w)}
-      # removes punctuation
-      words.each do |word|
-        word.gsub(/[^\p{Alnum}\p{Punct}\p]/, '').chomp
-      end
+  def get_job_title job_key
+    scrape_website job_key
+    @job_title = @document.css('#job_header .jobtitle').text
+  end
 
-      words_to_hash words
-      # counts words and turns into hash
+  def get_company job_key
+    scrape_website job_key
+    @job_title = @document.css('#job_header .company').text
+  end
 
+  def get_location job_key
+    scrape_website job_key
+    @job_title = @document.css('#job_header .location').text
+  end
+
+  def get_job_description job_key
+    scrape_website job_key
+    @job_desc_string = @document.css('td.snip span#job_summary.summary').text.downcase
+  end
+
+  def string_to_arr job_desc_string
+    ignore_words = ['and','that','but','or','as','if','when','than',
+      'because','while','where','after','so','though','since','until',
+      'whether','before','although','nor','like','once','unless','now',
+      'except','and/or','are','of','the','to','with','in','is','a','our',
+      'for','an','we','including','not','at','on','etc.','them',',','be',
+      'no','by','about','work','all','well','&','has','will','you','they','other',
+      'from','have','must','this','may','your','required','*','•','1','2','3','4',
+      '5','6','7','8','9',' ','–']
+      puts job_desc_string
+    job_desc_string.gsub!(/\d\s?/, '')
+    puts job_desc_string
+    @words = job_desc_string.split.delete_if{|w| ignore_words.include?(w)}
+    # removes punctuation
+    puts @words
+    @words.reject! { |w| w.empty? }
+    @words.reject! { |w| w.nil? }
+
+    @words.map do |word|
+      word.gsub!(/"\W+/, '')
+    end
+    puts @words
+    # puts @words
   end
 
   def words_to_hash words
     w_counts = Hash.new(0)
-    words.each { |word| w_counts[word] += 1 }
-    w_counts.delete_if {|k,v| v == 1}
+    words.each { |word| w_counts[word] += 1.5 }
+    w_counts.delete_if {|k,v| v == 1.5} && words.length > 50
     word_arr = w_counts.map do |key, value|
        {"text"=>key,"weight"=>value}
     end
