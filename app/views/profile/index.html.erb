@@ -1,17 +1,18 @@
 
 <h1 class="text-center">Job Board</h1>
-<p class="instructions text-center">Don't see a match? Be sure your <%= link_to "Resume", users_path, class: "" %> is up to date, or head back to <%= link_to "Search", root_path, class: "" %>.
+<%= link_to ' back', :back, class: "icon-pad pull-left glyphicon glyphicon-arrow-left" %>
+<p class="instructions text-center">Don't see a match? Be sure your <%= link_to "Resume", users_path, class: "" %> is up to date, or try a new <%= link_to "Search", root_path, class: "" %>.
 </p>
 
 <div class="clouds">
   <% @jobs.each do |job| %>
-<div class="col-md-6 col-lg-6">
+<div class="col-md-6 col-lg-6 cloud-container">
     <!-- <div class="my-cloud"> -->
       <h4 class='text-center'>
       <%= link_to job.title, @url,:target => '_blank' %><br><span class='text-muted'>
       <%= job.company %><span class="bar"> | </span>
       <%= job.location %></span>
-      <%= link_to "", jobs_path(job.id),  method: :delete, data: {confirm: "Are you sure?"}, class: "icon-pad btn btn-danger btn-xs glyphicon glyphicon-trash" %>
+      <%= link_to "", jobs_path(job.id), class: "icon-pad btn btn-danger btn-xs glyphicon glyphicon-trash js-delete-btn" %>
     </h4>
 
     <div class='job-desc my-cloud'>

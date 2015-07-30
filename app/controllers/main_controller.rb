@@ -11,13 +11,18 @@ class MainController < ApplicationController
         flash[:danger] = 'Sorry, there were no results for that skill. Try searching for a different one.'
       end
 
+
+
+
     # result.totalResults #indeed returns number of results
     # Indeed.get('f8abbe5539f14420', '4fb26405a44d7eb8')
+    @full_results = search_results[0..20].each_slice(3).to_a
 
     search_results = search_results[0..2]
 
     @search_results = search_results
     # @mult_results = result[2...3]
+    @i = 0
     job_descriptions = search_results.map {|result|
       # @job_title = result["jobtitle"]
       job_key = result["jobkey"]
@@ -31,7 +36,13 @@ class MainController < ApplicationController
     @job_descriptions = job_descriptions
     gon.job_desc = job_descriptions
     @job = Job.new
+
+
+    # puts @full_results
+
     end
+
+
 
   end
 

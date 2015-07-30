@@ -1,9 +1,22 @@
 $(function(){
-    $(function () {
     $('[data-toggle="tooltip"]').tooltip()
+
+  // ajax delete
+  $('.js-delete-btn').on('click',function(e){
+    e.preventDefault();
+    var btn=$(this);
+    $.ajax({
+      url:  btn.attr('href'),
+      method:'DELETE',
+      dataType:'json'
+    }).done(function(data){
+      if(data){
+        btn.closest('.cloud-container').remove();
+      }
     })
-  // console.log(gon.results)
-  // var job_clouds = function(){
+});
+
+
     removeOverflowing = true;
     var word_array = gon.job_desc
     console.log(word_array)

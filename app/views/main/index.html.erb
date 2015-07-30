@@ -1,4 +1,6 @@
 <%= render "shared/flash" %>
+
+
 <% unless @current_user %>
 <div class="well">
 <h4 class="text-center"><%= link_to "Sign up", signup_path %> for an account - it's easy! You'll need  it to add jobs to your board, store your resume, and view your job match scores. </h4>
@@ -19,7 +21,6 @@
 
   </div>
   <div class="row">
-
   <div class="instructions text-center text-info">
       <p>Enter a skill and location to explore available jobs, then click the <span class='icon-pad-flat btn btn-success btn-xs glyphicon glyphicon-plus'></span> to add them to your
       <% if @current_user %>
@@ -39,6 +40,25 @@
 
   </div>
   </div>
+<!--   <nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav> -->
 <div class="clouds">
   <% unless params[:skill].nil? %>
   <% @search_results.each do |result| %>
@@ -46,8 +66,8 @@
   <div class="col-md-6 col-lg-6">
 
   <h4 class='text-center'>
-
-    <%= link_to result["jobtitle"], @url,:target => '_blank' %>
+    <% job_key = result["jobkey"] %>
+    <%= link_to result["jobtitle"], "http://www.indeed.com/viewjob?jk=#{job_key}",:target => '_blank' %>
     <% if @current_user %>
   <a href="/add_job/<%= result['jobkey'] %> "><button class='icon-pad btn btn-success btn-xs glyphicon glyphicon-plus' data-toggle="tooltip" title="Add to Job Board"></button></a>
     <% else %>

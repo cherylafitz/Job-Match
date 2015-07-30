@@ -47,9 +47,9 @@ class ProfileController < ApplicationController
       @job_arr.reject! { |e| e.nil? || e == ''}
       @jl = @job_arr.length
       # jl = @job_arr.length
-      puts "testing"
-      puts @job_arr
-      puts @jl
+      # puts "testing"
+      # puts @job_arr
+      # puts @jl
       unless @resume_array.nil?
         rl = @resume_array.length
       @comparison_arr = @job_arr & @resume_array
@@ -79,9 +79,17 @@ class ProfileController < ApplicationController
   end
 
   def destroy
-    j = Job.find params[:id]
-    j.delete
-    redirect_to profile_path
+    # j = Job.find params[:id]
+    # j.delete
+    # redirect_to profile_path
+
+    result = Job.destroy params[:id]
+    # redirect_to :tasks
+    respond_to do |format|
+      format.html {redirect_to profile_path}
+      format.json {render json: result}
+    end
+
   end
 
   def update
