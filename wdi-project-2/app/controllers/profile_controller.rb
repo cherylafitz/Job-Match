@@ -29,22 +29,26 @@ class ProfileController < ApplicationController
       resume = current_user.resume
 
       @resume_array = string_to_arr resume
-      @things = words_to_hash @words
-      gon.resume = @things
     end
 
     @matchscore_arr = @jobkey_arr.map do |job_key|
       @job_desc_string = get_job_description job_key
       @job_arr = string_to_arr @job_desc_string
       @job_arr.reject! { |e| e.nil? || e == ''}
+      @jl = @job_arr.length
       # jl = @job_arr.length
-      rl = @resume_array.length
+      puts "testing"
+      puts @job_arr
+      puts @jl
+      unless @resume_array.nil?
+        rl = @resume_array.length
       @comparison_arr = @job_arr & @resume_array
+      end
       unless @comparison_arr.nil?
         cl = @comparison_arr.length
-      end
-      percent_shared_words = (cl.to_f / rl.to_f) * 100
+      percent_shared_words = (cl.to_f / @jl.to_f) * 100
       percent_shared_words.round
+      end
     end
 
     @matchscore_arr.length.times do |i|

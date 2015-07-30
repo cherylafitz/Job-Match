@@ -16,11 +16,13 @@
   <div class="row">
 
   <div class="instructions text-center text-info">
-      <p>Type in a skill and a location to explore available jobs. Add a job to you matches profile to calculate your match score.</p>
+      <p>Enter a skill and location to explore available jobs, then add them to your job board.</p>
+      <p>To see your Match Score for each job, add your <%= link_to "Resume", users_path, class: "" %>.</p>
 
   </div>
   </div>
 <div class="clouds">
+  <% unless params[:skill].nil? %>
   <% @search_results.each do |result| %>
 
   <div class="col-md-6 col-lg-6">
@@ -28,10 +30,10 @@
   <h4 class='text-center'>
 
     <%= link_to result["jobtitle"], @url,:target => '_blank' %>
-  <a href="/add_job/<%= result['jobkey'] %> "><button class='icon-pad btn btn-success btn-xs glyphicon glyphicon-plus'data-toggle="tooltip" title="Add to my jobs"></button></a></h4>
+  <a href="/add_job/<%= result['jobkey'] %> "><button class='icon-pad btn btn-success btn-xs glyphicon glyphicon-plus' data-toggle="tooltip" title="Add to Job Board"></button></a></h4>
     <div class='job-desc'></div>
   </div>
   <% end %>
-
+  <% end %>
 </div>
 </div>

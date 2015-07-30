@@ -3,17 +3,23 @@ body {
   font-family: 'Questrial', sans-serif;
   /*color:#fff;*/
   background-color: #D0EEFF;
+  /*background-image: image-url("textures-4-1169853");*/
 }
-div.jqcloud {
+.navbar-default {
+    background-color: rgba(19,171,88,.2);
+    border-color: #e7e7e7;
+}
+body div.jqcloud {
   margin: 0 auto;
+  font-family: 'Questrial', sans-serif;
 }
 div.my-cloud {
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(255,255,255,.5);
   /*border-radius: 50%;*/
   /*box-shadow: 0 0 10px 5px rgba(255,255,255,.7);*/
-  border: 2px solid #a0ddff;
+  border: 3px solid rgba(19, 171, 88, 0.2);
   margin-bottom: 2em;
-  padding-left: .5em;
+  /*padding-left: .5em;*/
 }
 
 .my-cloud .match-button {
@@ -23,26 +29,34 @@ div.my-cloud {
   position: absolute;
   right: 10px;
   font-family: 'Questrial', sans-serif;
-/*  background-color: #444;
-  border-color: #333;*/
+  background-color: #106F8A;
+  border: 2px solid #fff;
 }
 .my-cloud .icon-pad {
   padding: 5px;
 }
+.btn-info .badge.match-badge {
+  color: #0E5D73;
+}
 
 /*most common to least common words*/
-.w10 {
-
+.container div.jqcloud span.w10,
+.container div.jqcloud span.w9,
+.container div.jqcloud span.w8 {
+  color: #901158;
 }
-.w6 {
-
+.container div.jqcloud span.w7,
+.container div.jqcloud span.w6 {
+  color: #570A35;
 }
-
-.w3 {
-
+.container div.jqcloud span.w5,
+.container div.jqcloud span.w4,
+.container div.jqcloud span.w3 {
+  color: #13B25C;
 }
-.w1 {
-
+.container div.jqcloud span.w2,
+.container div.jqcloud span.w1 {
+  color: #0D783E;
 }
 
 .login-status {
@@ -52,7 +66,9 @@ div.my-cloud {
 .login-status {
   padding: 1em;
 }
-
+.form-inline .form-group {
+  margin: 1em;
+}
 .form-group label {
   padding-right: 1em;
   padding-left: 1em;
@@ -74,12 +90,16 @@ div[class*='job-desc'],
   min-height: 400px;
   min-width: 300px;
 }
+.bar {
+  color: #222;
+}
 
 .search-form {
   text-align: center;
 }
 
 .instructions {
-  margin: 2em 0;
+  margin: 1em 0 1em;
   font-size: 1.2em;
+  color: #0A4657;
 }

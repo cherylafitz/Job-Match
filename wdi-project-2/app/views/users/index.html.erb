@@ -1,14 +1,21 @@
-<h2>My Resume</h2>
+<h2><%= @current_user.name.titlecase %>'s Resume
+<% if @current_user.resume %>
+<%= link_to '', users_edit_path, class: 'icon-pad btn btn-info btn-xs glyphicon glyphicon-pencil' %></p>
+<% else %>
+  <%= link_to '', users_edit_path, class: 'icon-pad btn btn-success btn-xs glyphicon glyphicon-plus' %>
+<% end %>
+</h2>
 <div class="row">
-<div class="col-md-12 col-lg-12">
+<div class="col-md-6 col-lg-6">
 <!-- <h4>Resume</h4> -->
-<p class="text-muted">Add your resume to compare your experience with available jobs.<%= link_to '', users_edit_path, class: 'icon-pad btn btn-info btn-xs glyphicon glyphicon-pencil' %></p>
+<p class="text-muted">Your resume is used to generate a match score with the jobs you select, so be sure it's up to date!
 <% if @current_user.resume %>
   <%= @current_user.resume %>
-<% end %>
+    <% end %>
 </div>
-<!-- <div class="col-md-6 col-lg-6">
-</div> -->
+<div class=" col-md-6 col-lg-6">
+  <div class="resume my-cloud">
 
-
+  </div>
+</div>
 </div>

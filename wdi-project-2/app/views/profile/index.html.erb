@@ -1,39 +1,25 @@
 
-<h1 class="text-center">Career Match Profile</h1>
-<div class="row">
-<div class="col-md-4 col-lg-4">
+<h1 class="text-center">Job Board</h1>
+<p class="instructions text-center">Don't see a match? Be sure your <%= link_to "Resume", users_path, class: "" %> is up to date, or head back to <%= link_to "Search", root_path, class: "" %>.
+</p>
 
-  <h4>My Resume
-
-  <% if @current_user.resume %>
-  <%= link_to '', users_edit_path, class: 'icon-pad btn btn-info btn-xs glyphicon glyphicon-pencil' %>
-  <% else %>
-  <%= link_to '', users_edit_path, class: 'icon-pad btn btn-success btn-xs glyphicon glyphicon-plus' %>
-  <% end %>
-  </h4>
-  <p class="instructions text-info">Add your resume to generate job match scores.</p>
-
-  <div class="resume my-cloud">
-
-  </div>
-</div>
-<div class="col-md-8 col-lg-8">
 <div class="clouds">
   <% @jobs.each do |job| %>
+<div class="col-md-6 col-lg-6">
     <!-- <div class="my-cloud"> -->
       <h4 class='text-center'>
-      <%= link_to job.title, @url,:target => '_blank' %><span class='text-muted'> |
-      <%= job.company %> |
+      <%= link_to job.title, @url,:target => '_blank' %><br><span class='text-muted'>
+      <%= job.company %><span class="bar"> | </span>
       <%= job.location %></span>
       <%= link_to "", jobs_path(job.id),  method: :delete, data: {confirm: "Are you sure?"}, class: "icon-pad btn btn-danger btn-xs glyphicon glyphicon-trash" %>
     </h4>
 
     <div class='job-desc my-cloud'>
-    <h6><button class="btn btn-info match-button" type="button">Match Score <span class="badge icon-pad"><%= job.matchscore %></span></button></h6></div>
+    <h6><button class="btn btn-info match-button">Match Score <span class="badge icon-pad match-badge"><%= job.matchscore %></span></button></h6></div>
     <!-- </div> -->
+  </div>
   <% end %>
+  <% @jl %>
 </div>
-</div>
-<%= @matchscore_arr %>
 
-</div>
+

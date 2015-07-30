@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
 
   def index
+    if current_user.resume
+      resume = current_user.resume
+
+      @resume_array = string_to_arr resume
+      @things = words_to_hash @words
+      gon.resume = @things
+    end
   end
     # render :json => @data
     # @data = result.first

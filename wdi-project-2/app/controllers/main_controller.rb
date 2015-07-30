@@ -3,9 +3,10 @@ class MainController < ApplicationController
     Indeed.key=ENV['INDEED_KEY']
     # AlchemyAPI.key=ENV['ALCHEMY_KEY']
     # search_results = Indeed.search(:q => 'design', :l => 'seattle')
+    unless params[:skill].nil?
+      search_results = Indeed.search(:q => params[:skill], :l => params[:location])
+      @results = search_results
 
-    search_results = Indeed.search(:q => params[:skill], :l => params[:location])
-    @results = search_results
 
 
     # result.totalResults #indeed returns number of results
@@ -28,6 +29,7 @@ class MainController < ApplicationController
     @job_descriptions = job_descriptions
     gon.job_desc = job_descriptions
     @job = Job.new
+    end
 
   end
 
