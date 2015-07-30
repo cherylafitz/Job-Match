@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # end
   def new
     @user = User.new
+    render layout: false
   end
 
   def edit
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
       flash[:success] = 'You have created an account, and are now logged in.'
       redirect_to root_path
     end
+
   end
 
   def update

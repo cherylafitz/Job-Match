@@ -1,8 +1,17 @@
-<%= render "shared/flash" %>
-<h1>Login</h1>
+<%= include_gon %>
 
 <%= bootstrap_form_for :user do |f| %>
+<%= render "shared/flash" %>
+<div class="modal-pad">
+<h1>Login</h1>
   <%= f.text_field :email, placeholder: "Enter your email" %>
   <%= f.password_field :password, placeholder: "Enter your password"%>
+  <div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   <%= f.submit "Login"%>
+  </div>
+</div>
 <% end %>
+
+
+

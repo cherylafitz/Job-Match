@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   def index
+    gon.job_desc
     Indeed.key=ENV['INDEED_KEY']
     # AlchemyAPI.key=ENV['ALCHEMY_KEY']
     # search_results = Indeed.search(:q => 'design', :l => 'seattle')

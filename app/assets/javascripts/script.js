@@ -16,8 +16,17 @@ $(function(){
     })
 });
 
+      $('#myModal').on('hidden.bs.modal', function() {
+      $(this).removeData('bs.modal');
+  });
 
+  // if(typeof gon != 'undefined'){
+  //     console.log('taco is', gon.taco);
+  // }else{
+  //     console.log('there is no gon (or taco)');
+  // }
     removeOverflowing = true;
+
     var word_array = gon.job_desc
     console.log(word_array)
     if (word_array) {

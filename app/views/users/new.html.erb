@@ -1,12 +1,18 @@
+<%= include_gon %>
 <%= render "shared/flash" %>
 
-<h1>Create Account</h1>
-<p>Security is important to us, too. We promise not to share your information with anyone.</p>
 
 <%= bootstrap_form_for :user do |f| %>
+<div class="modal-pad">
+<h1>Create Account</h1>
+<p>Security is important to us, too. We promise not to share your information with anyone.</p>
   <%= f.text_field :name, placeholder: "Enter your name" %>
   <%= f.text_field :email, placeholder: "Enter your email" %>
   <%= f.password_field :password, placeholder: "Enter your password"%>
+  <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   <%= f.submit "Login"%>
+  </div>
+</div>
 <% end %>
 

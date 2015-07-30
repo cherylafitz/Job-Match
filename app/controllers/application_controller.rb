@@ -81,5 +81,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # gon.something = "something"
+
 
 end

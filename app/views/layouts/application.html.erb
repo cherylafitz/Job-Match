@@ -3,13 +3,13 @@
 <head>
   <title>Job Match</title>
   <!-- Latest compiled and minified CSS & JS -->
+  <%= include_gon %>
   <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Tenor+Sans' rel='stylesheet' type='text/css'>  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= include_gon %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -61,8 +61,8 @@
       <%= @current_user.email %>
       <%= link_to "logout", logout_path %>
       <% else %>
-      <%= link_to "create account", signup_path %> or
-      <%= link_to "log in", login_path %>
+      <%= link_to "create account", signup_path, :data => {toggle: 'modal', target: '#myModal'} %> or
+      <%= link_to "log in", login_path, :data => {toggle: 'modal', target: '#myModal'} %>
     <% end %>
     </div>
       </ul>
@@ -76,5 +76,15 @@
     <%= yield %>
 
   </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
