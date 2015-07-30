@@ -1,4 +1,6 @@
 class ProfileController < ApplicationController
+  before_action :is_authenticated?
+
   def index
     Indeed.key=ENV['INDEED_KEY']
 

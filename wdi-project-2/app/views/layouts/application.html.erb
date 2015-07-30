@@ -13,6 +13,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,8 +32,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>      <%= link_to "Search", root_path, class: "" %></li>
+        <% if @current_user %>
         <li>      <%= link_to "Resume", users_path, class: "" %></li>
         <li>      <%= link_to "Job Board", profile_path, class: "" %></li>
+        <% end %>
 
         <!-- <li><a href="#">Link</a></li> -->
 <!--         <li class="dropdown">
@@ -58,7 +61,7 @@
       <%= link_to "logout", logout_path %>
       <% else %>
       <%= link_to "create account", signup_path %> or
-      <%= link_to "login", login_path %>
+      <%= link_to "log in", login_path %>
     <% end %>
     </div>
       </ul>

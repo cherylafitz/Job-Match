@@ -1,4 +1,8 @@
 <%= render "shared/flash" %>
+<div class="well">
+
+<h4 class="text-center"><%= link_to "Sign up", signup_path %> for an account - it's easy! You'll need  it to add jobs to your board, store your resume, and view your job match scores. </h4>
+</div>
 <div class="main">
   <div class="row">
       <form class="center-block form-inline search-form" role="search">
@@ -16,8 +20,21 @@
   <div class="row">
 
   <div class="instructions text-center text-info">
-      <p>Enter a skill and location to explore available jobs, then add them to your job board.</p>
-      <p>To see your Match Score for each job, add your <%= link_to "Resume", users_path, class: "" %>.</p>
+      <p>Enter a skill and location to explore available jobs, then click the <span class='icon-pad-flat btn btn-success btn-xs glyphicon glyphicon-plus'></span> to add them to your
+      <% if @current_user %>
+      <%= link_to "Job Board", profile_path, class: "" %>
+      <% else %>
+      job board
+      <% end %>
+      .</p>
+
+      <p>To see your Match Score for each job, add your
+      <% if @current_user %>
+      <%= link_to "Resume", users_path, class: "" %>
+      <% else %>
+      resume
+      <% end %>
+      .</p>
 
   </div>
   </div>
@@ -30,7 +47,12 @@
   <h4 class='text-center'>
 
     <%= link_to result["jobtitle"], @url,:target => '_blank' %>
-  <a href="/add_job/<%= result['jobkey'] %> "><button class='icon-pad btn btn-success btn-xs glyphicon glyphicon-plus' data-toggle="tooltip" title="Add to Job Board"></button></a></h4>
+    <% if @current_user %>
+  <a href="/add_job/<%= result['jobkey'] %> "><button class='icon-pad btn btn-success btn-xs glyphicon glyphicon-plus' data-toggle="tooltip" title="Add to Job Board"></button></a>
+    <% else %>
+    <span class='icon-pad-flat btn btn-success btn-xs glyphicon glyphicon-plus' data-toggle="tooltip" title="Log in to add to job board"></span>
+    <% end %>
+  </h4>
     <div class='job-desc'></div>
   </div>
   <% end %>

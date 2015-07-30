@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def index
     if current_user.resume
       resume = current_user.resume
