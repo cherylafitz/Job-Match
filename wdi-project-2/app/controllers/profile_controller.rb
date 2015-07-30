@@ -11,6 +11,14 @@ class ProfileController < ApplicationController
       @job_key = job.jobkey
     end
 
+    @jobkey_arr.each do |key|
+      scrape_website key
+    if key.nil?
+      j = Job.find params[:id]
+      j.delete
+      end
+    end
+
     # @title = Job.title.where(jobkey:)
     # @location = current_user.jobs[:location]
     # @company = current_user.jobs[:company]

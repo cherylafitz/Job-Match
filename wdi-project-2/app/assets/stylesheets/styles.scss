@@ -10,18 +10,20 @@ body {
     border-color: #e7e7e7;
 }
 body div.jqcloud {
-  margin: 0 auto;
+  margin: 0 auto 2em;
   font-family: 'Questrial', sans-serif;
 }
 div.my-cloud,
 .well {
-  background-color: rgba(255,255,255,.5);
+  background-color: rgba(255,255,255,.6);
   /*border-radius: 50%;*/
   /*box-shadow: 0 0 10px 5px rgba(255,255,255,.7);*/
   border: 3px solid rgba(19, 171, 88, 0.2);
-  margin-bottom: 2em;
+  /*margin-bottom: 2em;*/
   /*padding-left: .5em;*/
 }
+
+
 
 .my-cloud .match-button {
   /*margin: 20px;*/
@@ -30,11 +32,21 @@ div.my-cloud,
   position: absolute;
   right: 10px;
   font-family: 'Questrial', sans-serif;
-  background-color: #106F8A;
+  background-color: #127794;
   border: 2px solid #fff;
+  box-shadow: 0px 0px 2px #777;
+  -moz-box-shadow: 0px 0px 2px #777;
+  -webkit-box-shadow: 0px 0px 2px #777;
+}
+.my-cloud .match-button:hover {
+  cursor: initial;
 }
 .my-cloud .icon-pad {
   padding: 5px;
+}
+.glyphicon-trash {
+  float: right;
+  /*opacity: .9;*/
 }
 
 .btn-info .badge.match-badge {

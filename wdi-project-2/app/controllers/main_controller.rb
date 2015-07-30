@@ -7,7 +7,9 @@ class MainController < ApplicationController
       search_results = Indeed.search(:q => params[:skill], :l => params[:location])
       @results = search_results
 
-
+      if search_results.empty?
+        flash[:danger] = 'Sorry, there were no results for that skill. Try searching for a different one.'
+      end
 
     # result.totalResults #indeed returns number of results
     # Indeed.get('f8abbe5539f14420', '4fb26405a44d7eb8')

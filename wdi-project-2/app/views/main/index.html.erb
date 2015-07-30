@@ -1,8 +1,9 @@
 <%= render "shared/flash" %>
+<% unless @current_user %>
 <div class="well">
-
 <h4 class="text-center"><%= link_to "Sign up", signup_path %> for an account - it's easy! You'll need  it to add jobs to your board, store your resume, and view your job match scores. </h4>
 </div>
+<% end %>
 <div class="main">
   <div class="row">
       <form class="center-block form-inline search-form" role="search">
