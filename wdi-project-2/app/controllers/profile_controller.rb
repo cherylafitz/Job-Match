@@ -4,6 +4,7 @@ class ProfileController < ApplicationController
 
     # render json: job_params
     @jobs = current_user.jobs
+
     @jobkey_arr = current_user.jobs.map do |job|
       @job_key = job.jobkey
     end
@@ -12,16 +13,17 @@ class ProfileController < ApplicationController
     # @location = current_user.jobs[:location]
     # @company = current_user.jobs[:company]
 
-    job_descriptions = @jobkey_arr.map {|job_key|
+    @job_descriptions_hash = @jobkey_arr.map {|job_key|
       # @job_title = result["jobtitle"]
       @job_desc_string = get_job_description job_key
       @job_arr = string_to_arr @job_desc_string
       words_to_hash @words
     }
 
+    # puts 'testing!'
+    # puts @matchscore_arr
 
-
-    gon.job_desc = job_descriptions
+    gon.job_desc = @job_descriptions_hash
 
     if current_user.resume
       resume = current_user.resume
@@ -31,20 +33,28 @@ class ProfileController < ApplicationController
       gon.resume = @things
     end
 
-    # @combined_arr = job_descriptions.map
-      # @combined_words = @resume_array & @job_arr
+    @matchscore_arr = @jobkey_arr.map do |job_key|
+      @job_desc_string = get_job_description job_key
+      @job_arr = string_to_arr @job_desc_string
+      @job_arr.reject! { |e| e.nil? || e == ''}
+      # jl = @job_arr.length
+      rl = @resume_array.length
+      @comparison_arr = @job_arr & @resume_array
+      unless @comparison_arr.nil?
+        cl = @comparison_arr.length
+      end
+      percent_shared_words = (cl.to_f / rl.to_f) * 100
+      percent_shared_words.round
+    end
 
-    # get_job_description result, job_key
+    @matchscore_arr.length.times do |i|
+      @jobs[i].matchscore = @matchscore_arr[i]
+      @jobs[i].save
+    end
 
-    # job_descriptions = search_results.map {|result|
-    #   # @job_title = result["jobtitle"]
-    #   i = 0
-    #   @jobkey_arr[i]
-    #   get_job_description_arr result, job_key
-    #   i+=1
-    # }
-    # gon.job_desc = job_descriptions
-    # @search_results = search_results
+    @job_descriptions_hash
+    @comparison_arr = @matchscore_arr
+
 
     # render json: current_user.jobs
     # render plain: @resume
@@ -87,6 +97,8 @@ class ProfileController < ApplicationController
   def job_params
     require.params(:job).permit(:jobkey)
   end
+
+  # def compare job
 
   # def compare_job_resume job_desc resume
   #   job_desc & resume

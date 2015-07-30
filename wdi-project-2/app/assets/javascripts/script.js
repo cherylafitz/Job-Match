@@ -12,10 +12,15 @@ $(function(){
       $('.clouds').find('.job-desc').each(function(child) {
         console.log(i)
         $(this).jQCloud(word_array[i], {
-          // shape: 'rectangular',
-          autoResize: true
-
+          shape: 'rectangular',
+            classPattern: null,
+  colors: ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976", "#ffeda0", "#ffffcc"],
+  fontSize: {
+    from: 0.1,
+    to: 0.02
+  }
         });
+
         console.log("this is time " + i)
         i += 1;
       });
@@ -30,8 +35,12 @@ $(function(){
     word_array = gon.resume
     console.log(word_array)
     $('.resume').jQCloud(word_array, {
-      // shape: 'rectangular',
-      autoResize: true
+      shape: 'rectangular',
+      autoResize: true,
+      fontSize: {
+        from: 0.1,
+        to: 0.02
+      }
     });
   }
   // console.log(arr1)

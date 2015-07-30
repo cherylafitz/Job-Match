@@ -1,15 +1,53 @@
 
 body {
   font-family: 'Questrial', sans-serif;
-  color:#fff;
-  background-color: #222;
+  /*color:#fff;*/
+  background-color: #D0EEFF;
+}
+div.jqcloud {
+  margin: 0 auto;
+}
+div.my-cloud {
+  background-color: rgba(0,0,0,.5);
+  /*border-radius: 50%;*/
+  /*box-shadow: 0 0 10px 5px rgba(255,255,255,.7);*/
+  border: 2px solid #a0ddff;
+  margin-bottom: 2em;
+  padding-left: .5em;
+}
+
+.my-cloud .match-button {
+  /*margin: 20px;*/
+  /*font-family: initial;*/
+  z-index: 1000;
+  position: absolute;
+  right: 10px;
+  font-family: 'Questrial', sans-serif;
+/*  background-color: #444;
+  border-color: #333;*/
+}
+.my-cloud .icon-pad {
+  padding: 5px;
+}
+
+/*most common to least common words*/
+.w10 {
+
+}
+.w6 {
+
+}
+
+.w3 {
+
+}
+.w1 {
+
 }
 
 .login-status {
-  color: #777;
+  /*color: #777;*/
 }
-
-body
 
 .login-status {
   padding: 1em;
@@ -26,10 +64,15 @@ body
 
 div[class*='job-desc'],
 .resume {
-  max-width: 800px;
-  max-height: 600px;
+  max-width: 600px;
+  max-height: 500px;
   min-width:400px;
-  min-height: 350px;
+  min-height: 300px;
+}
+
+.resume {
+  min-height: 400px;
+  min-width: 300px;
 }
 
 .search-form {
