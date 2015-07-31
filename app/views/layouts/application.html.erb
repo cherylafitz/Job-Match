@@ -11,14 +11,11 @@
   <link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
-  <!-- <link href='http://fonts.googleapis.com/css?family=Tenor+Sans' rel='stylesheet' type='text/css'> -->
-  <!-- <link href='http://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,74 +27,52 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to "JM", root_path, class: "navbar-brand" %>
-
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>      <%= link_to "Search", root_path, class: "search-link" %></li>
         <% if @current_user %>
-        <li>      <%= link_to "Job Board", profile_path, class: "job-board-link" %></li>
-        <li>      <%= link_to "Resume", users_path, class: "resume-link" %></li>
+          <li>      <%= link_to "Job Board", profile_path, class: "job-board-link" %></li>
+          <li>      <%= link_to "Resume", users_path, class: "resume-link" %></li>
         <% end %>
-
-        <!-- <li><a href="#">Link</a></li> -->
-<!--         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
- -->
- </ul>
-
+      </ul>
       <ul class="nav navbar-nav navbar-right">
-      <div class="login-status">
-      <% if @current_user %>
-      You are logged in as
-      <%= @current_user.email %>
-      <%= link_to "logout", logout_path, class: "log" %>
-      <% else %>
-      <%= link_to "create account", signup_path, :data => {toggle: 'modal', target: '#myModal'}, class: "log" %> or
-      <%= link_to "log in", login_path, :data => {toggle: 'modal', target: '#myModal'}, class: "log" %>
-    <% end %>
-    </div>
+        <div class="login-status">
+          <% if @current_user %>
+            You are logged in as <%= @current_user.email %>
+            <%= link_to "logout", logout_path, class: "log" %>
+          <% else %>
+            <%= link_to "create account", signup_path, :data => {toggle: 'modal', target: '#myModal'}, class: "log" %> or
+            <%= link_to "log in", login_path, :data => {toggle: 'modal', target: '#myModal'}, class: "log" %>
+          <% end %>
+        </div>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
   <div class="container">
     <div class="row">
-
-  </div>
+    </div>
     <%= yield %>
-<footer><div class="row"><div class="col-md-12 col-lg-12">
-
-  <p class="text-center">&#9400; 2015 Cheryl A. FitzGerald. All Rights Reserved. </p>
-</div>
-</div>
-<span class="indeed-attr" id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a
-href="http://www.indeed.com/" title="Job Search"><img
-src="http://www.indeed.com/p/jobsearch.gif" style="border: 0;
-vertical-align: middle;" alt="Indeed job search"></a></span></footer>
+    <footer>
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <p class="text-center">&#9400; 2015 Cheryl A. FitzGerald. All Rights Reserved. </p>
+        </div>
+      </div>
+        <span class="indeed-attr" id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a
+        href="http://www.indeed.com/" title="Job Search"><img
+        src="http://www.indeed.com/p/jobsearch.gif" style="border: 0;
+        vertical-align: middle;" alt="Indeed job search"></a></span>
+    </footer>
   </div>
-
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      </div>
     </div>
   </div>
-</div>
-
-
 </body>
 </html>

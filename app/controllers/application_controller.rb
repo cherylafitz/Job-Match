@@ -45,7 +45,6 @@ class ApplicationController < ActionController::Base
   end
 
   def string_to_arr job_desc_string
-    # require 'active_support/core_ext/string'
     ignore_words = ['and','that','but','or','as','if','when','than',
       'because','while','where','after','so','though','since','until',
       'whether','before','although','nor','like','once','unless','now',
@@ -54,14 +53,9 @@ class ApplicationController < ActionController::Base
       'no','by','about','work','all','well','&','has','will','you','they','other',
       'from','have','must','this','may','your','required','*','•','1','2','3','4',
       '5','6','7','8','9',' ','–']
-      # puts job_desc_string
     job_desc_string.downcase!
     job_desc_string.gsub!(/\d\s?/, '')
-    # puts job_desc_string
     @words = job_desc_string.split.delete_if{|w| ignore_words.include?(w)}
-    # removes punctuation
-    # puts @words
-
     @words.map do |word|
       word.gsub!(/(\W|\d)/, "")
       word = word.singularize
@@ -69,7 +63,6 @@ class ApplicationController < ActionController::Base
     @words.reject! { |w| w.empty? }
     @words.reject! { |e| e.nil? || e == ''}
     @words
-    # puts @words
   end
 
   def words_to_hash words

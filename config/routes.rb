@@ -1,30 +1,17 @@
 Rails.application.routes.draw do
 
-  # get 'profile/index'
-
   root 'main#index'
 
-  # resources :users
-
-
-  # put 'main/index' => 'main#index'
   resources :users, except: [:new, :create, :edit, :show]
   get 'signup' => 'users#new'
   get 'users/edit' => 'users#edit'
   post 'signup' => 'users#create'
-  # get 'users/:id' => 'profile#update', as: 'profile'
 
   # resources :jobs
 
-
   get 'job-board' => 'profile#index', as: "profile"
   delete 'jobs/:id' => 'profile#destroy', as: :jobs
-  # put 'profile/update' => 'users#update'
 
-  # resources :profile, except: [:new]
-
-
-  # post 'profile/add_job' => 'profile#add_job'
   get 'add_job/:id' => 'profile#add_job'
 
   get 'login' => 'sessions#new'

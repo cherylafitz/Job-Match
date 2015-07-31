@@ -1,26 +1,23 @@
 <div class="job-board">
-<h1 class="text-center">Job Board</h1>
-<%= link_to "<span class='glyphicon glyphicon-arrow-left'></span> back".html_safe, :back, class: "icon-pad pull-left" %>
-<p class="instructions text-center">Don't see a match? Be sure your <%= link_to "Resume", users_path, class: "" %> is up to date, or try adding jobs from the <%= link_to "Search", root_path, class: "" %> page.
-</p>
-
-<div class="clouds">
-  <% @jobs.each do |job| %>
-<div class="col-md-6 col-lg-6 cloud-container">
-    <!-- <div class="my-cloud"> -->
-      <h4>
-      <%= link_to job.title, @url,:target => '_blank', class: "job-title" %><br><span class='text-muted'>
-      <%= job.company %><span class="bar"> | </span>
-      <%= job.location %></span>
-      <%= link_to "", jobs_path(job.id), class: "icon-pad btn btn-danger btn-xs glyphicon glyphicon-trash js-delete-btn" %>
-    </h4>
-
-    <div class='job-desc my-cloud'>
-    <h6><span class="label-info match-label">Match Score <span class="badge icon-pad match-badge"><%= job.matchscore %></span></button></h6></div>
-    <!-- </div> -->
+  <h1 class="text-center">Job Board</h1>
+  <%= link_to "<span class='glyphicon glyphicon-arrow-left'></span> back".html_safe, :back, class: "icon-pad pull-left" %>
+  <p class="instructions text-center">Don't see a match? Be sure your <%= link_to "Resume", users_path, class: "" %> is up to date, or try adding jobs from the <%= link_to "Search", root_path, class: "" %> page.</p>
+  <div class="clouds">
+    <% @jobs.each do |job| %>
+      <div class="col-md-6 col-lg-6 cloud-container">
+        <h4>
+          <%= link_to job.title, @url,:target => '_blank', class: "job-title" %><br>
+          <span class='text-muted'>
+          <%= job.company %><span class="bar"> | </span>
+          <%= job.location %></span>
+          <%= link_to "", jobs_path(job.id), class: "icon-pad btn btn-danger btn-xs glyphicon glyphicon-trash js-delete-btn" %>
+        </h4>
+      <div class='job-desc my-cloud'>
+        <h6><span class="label-info match-label">Match Score <span class="badge icon-pad match-badge"><%= job.matchscore %></span></span></h6>
+      </div>
+      </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
-<div class='clearfix'></div>
+  <div class='clearfix'></div>
 </div>
 

@@ -20,7 +20,6 @@ class ProfileController < ApplicationController
     end
 
     @job_descriptions_hash = @jobkey_arr.map {|job_key|
-      # @job_title = result["jobtitle"]
       @job_desc_string = get_job_description job_key
       @job_arr = string_to_arr @job_desc_string
       words_to_hash @words
@@ -41,9 +40,7 @@ class ProfileController < ApplicationController
       puts @job_arr
       puts "this is right before the problem"
       puts @job_arr
-      # @job_arr.reject! { |e| e.nil? || e == ''}
       @jl = @job_arr.length
-
       unless @resume_array.nil?
         rl = @resume_array.length
       @comparison_arr = @job_arr & @resume_array
@@ -62,23 +59,15 @@ class ProfileController < ApplicationController
 
     @job_descriptions_hash
     @comparison_arr = @matchscore_arr
-
-
     # render json: current_user.jobs
     # render plain: @resume
   end
 
   def edit
-
   end
 
   def destroy
-    # j = Job.find params[:id]
-    # j.delete
-    # redirect_to profile_path
-
     result = Job.destroy params[:id]
-    # redirect_to :tasks
     respond_to do |format|
       format.html {redirect_to profile_path}
       format.json {render json: result}
@@ -93,11 +82,7 @@ class ProfileController < ApplicationController
   end
 
   def add_job
-    # @job =
-    # render json: job_params
     @jobkey = params[:id]
-
-    # @jobkey = job_params
     p @jobkey
     @description = get_job_description @jobkey
     @job_location = get_location @jobkey
