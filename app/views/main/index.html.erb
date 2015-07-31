@@ -3,8 +3,8 @@
 
 
 <div class="main">
-<h1 class="title text-center">Job Match</h1>
-<h3 class="text-center">Job searching is fun.</h3>
+<h1 class="title">Job Match</h1>
+<h3>Job searching is fun.</h3>
 <% unless @current_user %>
 <div class="well">
 <h4><%= link_to "Log In", login_path, :data => {toggle: 'modal', target: '#myModal'}, class: "btn btn-primary login-btn" %>
@@ -21,7 +21,6 @@
           <%= f.submit "Search" %>
         <% end %>
        </div>
-        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
       </form>
 
   </div>
@@ -45,25 +44,7 @@
 
   </div>
   </div>
-<!--   <nav>
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav> -->
+
 <div class="clouds">
   <% unless params[:skill].nil? %>
   <% @search_results.each do |result| %>

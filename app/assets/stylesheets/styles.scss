@@ -21,6 +21,9 @@ a:focus {
 h4 a {
   color: #0B4A5C;
 }
+a.log {
+  padding-left: 1em;
+}
 .job-title {
   font-size: 1.2em;
 }
@@ -28,6 +31,7 @@ h4 a {
   color: #0B4A5C;
   font-size: 1.2em;
 }
+
 .title {
   font-size: 5em;
   font-family: 'Comfortaa', cursive;
@@ -151,7 +155,9 @@ div[class*='job-desc']
 }
 .glyphicon-trash {
   float: right;
-  /*opacity: .9;*/
+  /*opacity: .8;*/
+  background-color: #222;
+  border: 1px solid #000;
 }
 .btn-success.glyphicon-plus {
   /*background-color: #10944C;*/

@@ -7,7 +7,7 @@
 <div class="col-md-6 col-lg-6">
 <!-- <h4>Resume</h4> -->
 <% if @current_user.resume %>
-<%= link_to '', users_edit_path, class: 'icon-pad btn btn-info btn-xs glyphicon glyphicon-pencil pull-right' %>
+<%= link_to '', users_edit_path, class: 'icon-pad btn btn-primary btn-xs glyphicon glyphicon-pencil pull-right' %>
 <% else %>
   <%= link_to '', users_edit_path, class: 'icon-pad btn btn-success btn-xs glyphicon glyphicon-plus pull-right' %>
 <% end %>
