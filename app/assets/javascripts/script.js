@@ -1,5 +1,6 @@
 $(function(){
-    $('[data-toggle="tooltip"]').tooltip()
+  // tooltip
+  $('[data-toggle="tooltip"]').tooltip()
 
   // ajax delete
   $('.js-delete-btn').on('click',function(e){
@@ -14,48 +15,45 @@ $(function(){
         btn.closest('.cloud-container').remove();
       }
     })
-});
-
-      $('#myModal').on('hidden.bs.modal', function() {
-      $(this).removeData('bs.modal');
   });
+  // modal
+  $('#myModal').on('hidden.bs.modal', function() {
+    $(this).removeData('bs.modal');
+  });
+  // active class for nav
+  var navLink = $('.nav.navbar-nav li a');
+  var searchLink = $('.search-link');
+  var jobBoardLink = $('.job-board-link');
+  var resumeLink = $('.resume-link');
+  if (navLink.hasClass('active')) {
 
-  // if(typeof gon != 'undefined'){
-  //     console.log('taco is', gon.taco);
-  // }else{
-  //     console.log('there is no gon (or taco)');
-  // }
-    removeOverflowing = true;
-
-    var word_array = gon.job_desc
-    console.log(word_array)
-    if (word_array) {
-    var i = 0;
-      $('.clouds').find('.job-desc').each(function(child) {
-        console.log(i)
-        $(this).jQCloud(word_array[i], {
-          shape: 'rectangular',
-            classPattern: null,
-  colors: ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976", "#ffeda0", "#ffffcc"],
-  fontSize: {
-    from: 0.1,
-    to: 0.02
   }
-        });
+  if ($('.search-page')[0]) {
+    navLink.removeClass('active');
+    $(searchLink).addClass('active');
+  } else if ($('.job-board')[0]) {
+    navLink.removeClass('active');
+    $(jobBoardLink).addClass('active');
+  } else if ($('.resume-page')[0]) {
+    $(resumeLink).addClass('active');
+  }
 
-        console.log("this is time " + i)
+  // cloud generation
+  var word_array = gon.job_desc
+  if (word_array) {
+  var i = 0;
+    $('.clouds').find('.job-desc').each(function(child) {
+      $(this).jQCloud(word_array[i], {
+        shape: 'rectangular',
+        });
         i += 1;
       });
       if ($('.clouds').parent().hasClass('main')) {
       $('.clouds').find('.job-desc').last().closest('div.col-md-6').addClass('last-cloud col-md-offset-3 col-lg-offset-3')
       }
    }
-  // }
-    // console.log(arr + i)
-  // var resume_cloud = function(){
-    if (gon.resume) {
+  if (gon.resume) {
     word_array = gon.resume
-    console.log(word_array)
     $('.resume').jQCloud(word_array, {
       shape: 'rectangular',
       autoResize: true,
@@ -65,12 +63,5 @@ $(function(){
       }
     });
   }
-  // console.log(arr1)
-  // $('.job-desc').jQCloud(arr1)
-  // console.log($('.job-desc').text())
-  // console.log(gon.word_arr)
-// alert('hey');
-  // }
-  // resume_cloud();
-  // job_clouds();
+
 });

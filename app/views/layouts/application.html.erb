@@ -4,6 +4,7 @@
   <title>Job Match</title>
   <!-- Latest compiled and minified CSS & JS -->
   <%= include_gon %>
+  <%= favicon_link_tag 'favicon.png' %>
   <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -35,10 +36,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li>      <%= link_to "Search", root_path, class: "" %></li>
+        <li>      <%= link_to "Search", root_path, class: "search-link" %></li>
         <% if @current_user %>
-        <li>      <%= link_to "Resume", users_path, class: "" %></li>
-        <li>      <%= link_to "Job Board", profile_path, class: "" %></li>
+        <li>      <%= link_to "Job Board", profile_path, class: "job-board-link" %></li>
+        <li>      <%= link_to "Resume", users_path, class: "resume-link" %></li>
         <% end %>
 
         <!-- <li><a href="#">Link</a></li> -->

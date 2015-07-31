@@ -8,7 +8,7 @@ class ProfileController < ApplicationController
     @jobs = current_user.jobs
 
     @jobkey_arr = current_user.jobs.map do |job|
-      @job_key = job.jobkey
+      @job_key = job. jobkey
     end
 
     @jobkey_arr.each do |key|
@@ -37,7 +37,11 @@ class ProfileController < ApplicationController
     @matchscore_arr = @jobkey_arr.map do |job_key|
       @job_desc_string = get_job_description job_key
       @job_arr = string_to_arr @job_desc_string
-      @job_arr.reject! { |e| e.nil? || e == ''}
+      puts "trying to put jobarr"
+      puts @job_arr
+      puts "this is right before the problem"
+      puts @job_arr
+      # @job_arr.reject! { |e| e.nil? || e == ''}
       @jl = @job_arr.length
 
       unless @resume_array.nil?

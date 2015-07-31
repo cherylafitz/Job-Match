@@ -61,14 +61,14 @@ class ApplicationController < ActionController::Base
     @words = job_desc_string.split.delete_if{|w| ignore_words.include?(w)}
     # removes punctuation
     # puts @words
-    @words.reject! { |w| w.empty? }
-    @words.reject! { |e| e.nil? || e == ''}
 
     @words.map do |word|
       word.gsub!(/(\W|\d)/, "")
       word = word.singularize
     end
-    # puts @words
+    @words.reject! { |w| w.empty? }
+    @words.reject! { |e| e.nil? || e == ''}
+    @words
     # puts @words
   end
 
@@ -81,7 +81,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # gon.something = "something"
 
 
 end
