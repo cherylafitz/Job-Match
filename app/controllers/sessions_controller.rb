@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def new
     render layout: false
-
   end
 
   def create
@@ -21,6 +20,4 @@ class SessionsController < ApplicationController
     flash[:info] = 'You are now logged out. Sorry to see you go.'
     redirect_to root_path
   end
-
-
 end

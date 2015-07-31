@@ -29,8 +29,6 @@ gem 'indeed', '~> 0.1.2'
 
 gem 'nokogiri', '~> 1.6.6.2'
 
-gem 'alchemy-api-rb', :require => 'alchemy_api'
-
 gem 'bootstrap_form'
 
 gem 'rest-client'

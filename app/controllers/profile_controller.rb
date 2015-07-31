@@ -4,13 +4,14 @@ class ProfileController < ApplicationController
   def index
     Indeed.key=ENV['INDEED_KEY']
 
-    # render json: job_params
+    # gets jobkeys to use in methods
     @jobs = current_user.jobs
 
     @jobkey_arr = current_user.jobs.map do |job|
       @job_key = job. jobkey
     end
 
+    # checks if jobs have been removed, if yes, deletes them from user's job board
     @jobkey_arr.each do |key|
       scrape_website key
     if key.nil?
@@ -19,20 +20,21 @@ class ProfileController < ApplicationController
       end
     end
 
+    # makes hash for word clouds
     @job_descriptions_hash = @jobkey_arr.map {|job_key|
       @job_desc_string = get_job_description job_key
       @job_arr = string_to_arr @job_desc_string
       words_to_hash @words
     }
-
     gon.job_desc = @job_descriptions_hash
 
+    # creates array of resume words
     if current_user.resume
       resume = current_user.resume
-
       @resume_array = string_to_arr resume
     end
 
+    # generates match score
     @matchscore_arr = @jobkey_arr.map do |job_key|
       @job_desc_string = get_job_description job_key
       @job_arr = string_to_arr @job_desc_string
@@ -52,6 +54,7 @@ class ProfileController < ApplicationController
       end
     end
 
+    # associates matchscore with jobs
     @matchscore_arr.length.times do |i|
       @jobs[i].matchscore = @matchscore_arr[i]
       @jobs[i].save
@@ -81,6 +84,7 @@ class ProfileController < ApplicationController
     redirect_to profile_path
   end
 
+  # adds job to table after user selects it on the search page
   def add_job
     @jobkey = params[:id]
     p @jobkey
