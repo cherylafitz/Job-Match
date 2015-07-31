@@ -1,51 +1,151 @@
+html {
 
+}
 body {
   /*font-family: 'Questrial', sans-serif;*/
   font-family: 'Raleway', sans-serif;
   /*font-family: 'Tenor Sans', sans-serif;  /*color:#fff;*/
-  background-color: #D0EEFF;
-  /*background-image: image-url("textures-4-1169853");*/
+  background: image-url("abstract-city-5-1619961-1599x2087.png") no-repeat center center fixed;;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-.navbar-default {
-    background-color: rgba(19,171,88,.2);
-    border-color: #e7e7e7;
+a {
+  color: #A82613;
+}
+a:hover,
+a:focus {
+  color: #BD2B15;
+}
+h4 a {
+  color: #0B4A5C;
+}
+.job-title {
+  font-size: 1.2em;
+}
+.control-label {
+  color: #0B4A5C;
+  font-size: 1.2em;
+}
+.title {
+  font-size: 5em;
+  font-family: 'Comfortaa', cursive;
+  border-bottom: 1px solid rgba(19, 171, 88, 0.2);
+  width: 80%;
+  padding-bottom: .1em;
+  margin: .5em auto 0;
+  color: #0B4A5C;
+}
+.container {
+  padding-top: 1em;
 }
 
+.main,
+.job-board,
+.resume-page {
+  padding: 1.5em;
+  background-color: rgba(#fff,.8);
+  box-shadow: 0px 0px 1px 0px #999;
+  -webkit-box-shadow: 0px 0px 1px 0px #999;
+  -moz-box-shadow: 0px 0px 1px 0px #999;
+  border: 1px solid rgba(19, 171, 88, 0.2)
+}
+.edit-resume {
+  min-height: 300px;
+}
+.navbar-default {
+    background-color: rgba(#fff,.8);
+    border-color: #e7e7e7;
+}
+.navbar-default .navbar-brand {
+  color: #0B4A5C;
+  font-family: 'Comfortaa', cursive;
+
+}
+.indeed-attr {
+  position: fixed;
+  bottom: 5px;
+  left: 10px
+}
 .modal-pad {
   padding: 1em;
 }
 body div.jqcloud {
-  margin: 0 auto 2em;
+  margin: 1em auto 2em;
   font-family: 'Questrial', sans-serif;
 }
+div[class*='job-desc'],
+.resume {
+  max-width: 600px;
+  max-height: 500px;
+  min-width:400px;
+  min-height: 300px;
+}
+.login-btn {
+  margin-bottom: 2em;
+}
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+}
+h4 {
+  line-height: 1.3em;
+}
+.resume {
+  min-height: 400px;
+  min-width: 300px;
+}
+.bar {
+  color: #222;
+}
 div.my-cloud,
-.well {
-  background-color: rgba(255,255,255,.6);
+div[class*='job-desc']
+ {
+  background-color: rgba(255,255,255,1);
   /*border-radius: 50%;*/
   /*box-shadow: 0 0 10px 5px rgba(255,255,255,.7);*/
-  border: 3px solid rgba(19, 171, 88, 0.2);
+  /*border: 3px solid rgba(19, 171, 88, 0.3);*/
+  border: 2px solid #dddddd;
+
   /*margin-bottom: 2em;*/
   /*padding-left: .5em;*/
 }
 
+.well {
+  background-color: transparent;
+  /*border-bottom: 3px solid rgba(19, 171, 88, 0.2);*/
+  border: none;
+  /*border-bottom: 1px solid rgba(19, 171, 88, 0.2);*/
+  box-shadow: none;
+  width: 70%;
+  margin: 0 auto;
+/*
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;*/
+}
 
 
-.my-cloud .match-button {
+
+.my-cloud .match-label {
   /*margin: 20px;*/
   /*font-family: initial;*/
+  color: #fff;
   z-index: 1000;
   position: absolute;
   right: 10px;
-  font-family: 'Questrial', sans-serif;
-  background-color: #127794;
-  border: 2px solid #fff;
+  font-family: 'Raleway', sans-serif;
+  background-color: #0B4A5C;
+  border: 3px solid #fff;
   box-shadow: 0px 0px 2px #777;
   -moz-box-shadow: 0px 0px 2px #777;
   -webkit-box-shadow: 0px 0px 2px #777;
+  border-radius: 4px;
+  padding: .3em .5em;
 }
-.my-cloud .match-button:hover {
-  cursor: initial;
-}
+
 .my-cloud .icon-pad {
   padding: 5px;
 }
@@ -53,27 +153,38 @@ div.my-cloud,
   float: right;
   /*opacity: .9;*/
 }
+.btn-success.glyphicon-plus {
+  /*background-color: #10944C;*/
+  opacity: .8;
+}
 
-.btn-info .badge.match-badge {
-  color: #0E5D73;
+.match-label .badge.match-badge {
+  color: #0B4A5C;
+  background-color: #fff;
+
 }
 
 /*most common to least common words*/
 .container div.jqcloud span.w10,
 .container div.jqcloud span.w9,
-.container div.jqcloud span.w8 {
+.container div.jqcloud span.w8,
+.container div.jqcloud span.w7 {
   color: #901158;
 }
-.container div.jqcloud span.w7,
-.container div.jqcloud span.w6 {
+/*.container div.jqcloud span.w7,*/
+.container div.jqcloud span.w6,
+.container div.jqcloud span.w5 {
   color: #570A35;
 }
-.container div.jqcloud span.w5,
+
 .container div.jqcloud span.w4,
 .container div.jqcloud span.w3 {
-  color: #13B25C;
+  /*color: #13B25C;*/
+  color: #148AAB;
 }
-.container div.jqcloud span.w2,
+.container div.jqcloud span.w2 {
+  color: #10944C;
+}
 .container div.jqcloud span.w1 {
   color: #0D783E;
 }
@@ -84,6 +195,9 @@ div.my-cloud,
 
 .login-status {
   padding: 1em;
+}
+.form-inline {
+  margin: 1em auto 0em;
 }
 .form-inline .form-group {
   margin: 1em;
@@ -106,28 +220,17 @@ div.my-cloud,
     cursor: initial;
 }
 
-div[class*='job-desc'],
-.resume {
-  max-width: 600px;
-  max-height: 500px;
-  min-width:400px;
-  min-height: 300px;
-}
-
-.resume {
-  min-height: 400px;
-  min-width: 300px;
-}
-.bar {
-  color: #222;
-}
 
 .search-form {
   text-align: center;
 }
 
 .instructions {
-  margin: 1em 0 1.5em;
+  margin: 1em auto 1.5em;
   font-size: 1.2em;
   color: #0A4657;
+  border-bottom: 1px solid rgba(19, 171, 88, 0.2);
+  width: 80%;
+  padding-bottom: 1em;
+  text-align: center;
 }

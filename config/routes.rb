@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # resources :jobs
 
 
-  get 'profile' => 'profile#index'
+  get 'job-board' => 'profile#index', as: "profile"
   delete 'jobs/:id' => 'profile#destroy', as: :jobs
   # put 'profile/update' => 'users#update'
 

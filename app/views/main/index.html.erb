@@ -1,12 +1,17 @@
+<div class="inner-content">
 <%= render "shared/flash" %>
 
 
+<div class="main">
+<h1 class="title text-center">Job Match</h1>
+<h3 class="text-center">Job searching is fun.</h3>
 <% unless @current_user %>
 <div class="well">
-<h4 class="text-center"><%= link_to "Sign up", signup_path %> for an account - it's easy! You'll need  it to add jobs to your board, store your resume, and view your job match scores. </h4>
+<h4><%= link_to "Log In", login_path, :data => {toggle: 'modal', target: '#myModal'}, class: "btn btn-primary login-btn" %>
+</h4>
+<h4>No account? Just<%= link_to " sign up", signup_path %> - it's easy! You'll need an account to add jobs to your board, store your resume, and view your job Match Scores. </h4>
 </div>
 <% end %>
-<div class="main">
   <div class="row">
       <form class="center-block form-inline search-form" role="search">
         <div class="form-group">
@@ -63,11 +68,11 @@
   <% unless params[:skill].nil? %>
   <% @search_results.each do |result| %>
 
-  <div class="col-md-6 col-lg-6">
+  <div class="col-md-6 col-lg-6 cloud-container">
 
   <h4 class='text-center'>
     <% job_key = result["jobkey"] %>
-    <%= link_to result["jobtitle"], "http://www.indeed.com/viewjob?jk=#{job_key}",:target => '_blank' %>
+    <%= link_to result["jobtitle"], "http://www.indeed.com/viewjob?jk=#{job_key}",:target => '_blank', class: 'job-title' %>
     <% if @current_user %>
   <a href="/add_job/<%= result['jobkey'] %> "><button class='icon-pad btn btn-success btn-xs glyphicon glyphicon-plus' data-toggle="tooltip" title="Add to Job Board"></button></a>
     <% else %>
@@ -79,4 +84,7 @@
   <% end %>
   <% end %>
 </div>
+<div class="clearfix"></div>
 </div>
+</div>
+

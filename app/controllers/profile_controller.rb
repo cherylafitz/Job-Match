@@ -19,19 +19,12 @@ class ProfileController < ApplicationController
       end
     end
 
-    # @title = Job.title.where(jobkey:)
-    # @location = current_user.jobs[:location]
-    # @company = current_user.jobs[:company]
-
     @job_descriptions_hash = @jobkey_arr.map {|job_key|
       # @job_title = result["jobtitle"]
       @job_desc_string = get_job_description job_key
       @job_arr = string_to_arr @job_desc_string
       words_to_hash @words
     }
-
-    # puts 'testing!'
-    # puts @matchscore_arr
 
     gon.job_desc = @job_descriptions_hash
 
@@ -46,10 +39,7 @@ class ProfileController < ApplicationController
       @job_arr = string_to_arr @job_desc_string
       @job_arr.reject! { |e| e.nil? || e == ''}
       @jl = @job_arr.length
-      # jl = @job_arr.length
-      # puts "testing"
-      # puts @job_arr
-      # puts @jl
+
       unless @resume_array.nil?
         rl = @resume_array.length
       @comparison_arr = @job_arr & @resume_array
@@ -113,17 +103,5 @@ class ProfileController < ApplicationController
       title:@job_title,company:@company,location:@job_location)
     redirect_to profile_path
   end
-
-  private
-
-  def job_params
-    require.params(:job).permit(:jobkey)
-  end
-
-  # def compare job
-
-  # def compare_job_resume job_desc resume
-  #   job_desc & resume
-  # end
 
 end

@@ -19,7 +19,7 @@ class MainController < ApplicationController
     # Indeed.get('f8abbe5539f14420', '4fb26405a44d7eb8')
     @full_results = search_results[0..20].each_slice(3).to_a
 
-    search_results = search_results[0..2]
+    search_results = search_results[0..4]
 
     @search_results = search_results
     # @mult_results = result[2...3]
