@@ -1,7 +1,7 @@
 <div class="resume-page">
 <h2><%= @current_user.name.titlecase %>'s Resume
 
-</h2><%= link_to ' back', :back, class: "icon-pad pull-left glyphicon glyphicon-arrow-left" %>
+</h2><%= link_to "<span class='glyphicon glyphicon-arrow-left'></span> back".html_safe, :back, class: "icon-pad pull-left" %>
 <div class="row"> <p class="text-muted instructions">This resume is used to generate a Match Score with the jobs you select, so be sure it's up to date!
 </p>
 <div class="col-md-6 col-lg-6">

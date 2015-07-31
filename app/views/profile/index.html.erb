@@ -1,7 +1,7 @@
 <div class="job-board">
 <h1 class="text-center">Job Board</h1>
-<%= link_to ' back', :back, class: "icon-pad pull-left glyphicon glyphicon-arrow-left" %>
-<p class="instructions text-center">Don't see a match? Be sure your <%= link_to "Resume", users_path, class: "" %> is up to date, or try a new <%= link_to "Search", root_path, class: "" %>.
+<%= link_to "<span class='glyphicon glyphicon-arrow-left'></span> back".html_safe, :back, class: "icon-pad pull-left" %>
+<p class="instructions text-center">Don't see a match? Be sure your <%= link_to "Resume", users_path, class: "" %> is up to date, or try adding jobs from the <%= link_to "Search", root_path, class: "" %> page.
 </p>
 
 <div class="clouds">
