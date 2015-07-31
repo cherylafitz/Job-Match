@@ -26,6 +26,11 @@ Additional areas needing future work include:
 	* show additional results up to 25 on scroll
 	* visually identify jobs within search results that already appear on a user's board
 * Usability issues with modals when user causes a form error
+* Add ability for users to upload resume instead of pasting in text
+* Cause values of search fields to remain after user clicks search
+* Make word clouds adaptive for mobile
+* Clean up methods to improve speed
+* Improve list of words to ignore in JDs and resumes
 
 ###Wireframe Links
 1) [https://generalassembly.mybalsamiq.com/mockups/3371804.png?key=d50bf25d97f905fddd89aa96ed5d4022296bcd00](https://generalassembly.mybalsamiq.com/mockups/3371804.png?key=d50bf25d97f905fddd89aa96ed5d4022296bcd00)

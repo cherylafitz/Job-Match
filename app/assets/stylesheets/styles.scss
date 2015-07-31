@@ -220,3 +220,24 @@ div[class*='job-desc']
   padding-bottom: 1em;
   text-align: center;
 }
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px) {
+    div[class*='job-desc'],
+    .resume {
+      max-width: 300px;
+      max-height: 600px;
+      min-width:200px;
+      min-height: 300px;
+    }
+}
+.main, .job-board, .resume-page {
+  padding: 0;
+}
+.mobile-pad {
+  padding: 1em;
+}
+.icon-pad {
+  margin: .5em;
+}
