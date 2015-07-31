@@ -30,7 +30,7 @@ Additional areas needing future work include:
 ###Wireframe Links
 1) [https://generalassembly.mybalsamiq.com/mockups/3371804.png?key=d50bf25d97f905fddd89aa96ed5d4022296bcd00](https://generalassembly.mybalsamiq.com/mockups/3371804.png?key=d50bf25d97f905fddd89aa96ed5d4022296bcd00)
 
-2 )[https://generalassembly.mybalsamiq.com/mockups/3371828.png?key=d73d83960f34df8c870f64cc593f1468a42a1c3b](https://generalassembly.mybalsamiq.com/mockups/3371828.png?key=d73d83960f34df8c870f64cc593f1468a42a1c3b)
+2) [https://generalassembly.mybalsamiq.com/mockups/3371828.png?key=d73d83960f34df8c870f64cc593f1468a42a1c3b](https://generalassembly.mybalsamiq.com/mockups/3371828.png?key=d73d83960f34df8c870f64cc593f1468a42a1c3b)
 
 3) [https://generalassembly.mybalsamiq.com/mockups/3371864.png?key=b11bb371b838f076937da25204a16aae7e524d32](https://generalassembly.mybalsamiq.com/mockups/3371864.png?key=b11bb371b838f076937da25204a16aae7e524d32)
 
