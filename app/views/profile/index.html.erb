@@ -6,7 +6,8 @@
     <% @jobs.each do |job| %>
       <div class="col-md-6 col-lg-6 cloud-container">
         <h4>
-          <%= link_to job.title, @url,:target => '_blank', class: "job-title" %><br>
+          <% job_key = job["jobkey"] %>
+          <%= link_to job.title, "http://www.indeed.com/viewjob?jk=#{job_key}",:target => '_blank', class: "job-title" %><br>
           <span class='text-muted'>
           <%= job.company %><span class="bar"> | </span>
           <%= job.location %></span>

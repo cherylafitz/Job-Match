@@ -9,13 +9,13 @@ The object of the web application is to enhance job searching through visual dis
 I used Ruby on Rails, jQuery, Ajax, the jqCloud library, the Indeed API, Twitter Bootstrap, Indeed gem, Nokogiri gem, Bcrypt gem, among others. 
 
 ###Approach
-I built job-match with two models, Users and Jobs, which both utilize the Indeed API. I also built methods to scrape additional data that was not included with the API - namely the full job description. The data is then manipulated to be received by jqCloud in JavaScript, and to provide an array of words to compare to the user's resume. Once the user enters their resume, an array of the words is processed and compared with the job description array, and together they are used to calculate a "match score." The match score is currently calculated by dividing the number of shared, key words between a user's resume and the job description, dividing that number by the number of words in the job posting, and multiplying by 100. This needs revision, which I address below.
+I built job-match with two models, Users and Jobs, which both utilize the Indeed API. I also built methods to scrape additional data that was not included with the API - namely the full job description. The data is then manipulated to be received by jqCloud in JavaScript, and to provide an array of words to compare to the user's resume. Once the user enters their resume, an array of the words is processed and compared with the job description array, and together they are used to calculate a "match score." The match score is currently calculated by dividing the number of meaningful (not ignored) shared words between a user's resume and the job description, dividing that number by the number of words in the job posting, multiplying by 100, and then adding the number of shared keywords (meaningful words that occur more than once in the resume and job posting) times two. This still needs revision, which I address below.
 
 ###Installation Instructions
 Download the files. Run bundle, db:migrate, and Foreman Rails S to run the app on a local server.
 
 ###Unsolved Problems
-The first area for future development should be the algorithm which generates the match scores. I developed a very simplistic equation to get the app working, but need to incorporate additional factors into my calculations, such as the length of a user's resume, and give weighting to certain types of shared words (such as words that appear in the title). 
+The first area for future development should be the algorithm which generates the match scores. I initially developed a very simplistic equation to get the app working, and then incorporated additional factors into my calculations, such as giving weight to shared words that appear more than oncein the resume and job posting. It would still be beneficial to give weighting to certain types of shared words (such as words that appear in the title). 
 
 The seocond area that needs to be addressed is the routing for jobs. Initially when I planned the website, I anticipated displaying the resume and jobs on the same page, which I called the "Profile page." I decided to separate the two towards the end of the development process, which left my routes rather confusing. 
 
@@ -31,6 +31,7 @@ Additional areas needing future work include:
 * Make word clouds adaptive for mobile
 * Clean up methods to improve speed
 * Improve list of words to ignore in JDs and resumes
+* Order jobs on Job Board by match score
 
 ###Wireframe Links
 1) [https://generalassembly.mybalsamiq.com/mockups/3371804.png?key=d50bf25d97f905fddd89aa96ed5d4022296bcd00](https://generalassembly.mybalsamiq.com/mockups/3371804.png?key=d50bf25d97f905fddd89aa96ed5d4022296bcd00)

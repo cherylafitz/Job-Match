@@ -24,34 +24,66 @@ class ProfileController < ApplicationController
     @job_descriptions_hash = @jobkey_arr.map {|job_key|
       @job_desc_string = get_job_description job_key
       @job_arr = string_to_arr @job_desc_string
-      words_to_hash @words
+      words_hash = words_to_hash @words
+      words_hash
     }
     gon.job_desc = @job_descriptions_hash
 
     # creates array of resume words
+
+    def get_keyword_arr words_hash
+      newarr = []
+      words_hash.each do |word|
+        newarr.push(word["text"])
+      end
+      return newarr
+    end
+
     if current_user.resume
       resume = current_user.resume
       @resume_array = string_to_arr resume
+      resume_hash = words_to_hash @words
+      get_keyword_arr resume_hash
+      puts get_keyword_arr resume_hash
+      @resume_keywords = get_keyword_arr resume_hash
     end
-
     # generates match score
+    # DRY!!
     @matchscore_arr = @jobkey_arr.map do |job_key|
       @job_desc_string = get_job_description job_key
       @job_arr = string_to_arr @job_desc_string
-      puts "trying to put jobarr"
-      puts @job_arr
-      puts "this is right before the problem"
-      puts @job_arr
-      @jl = @job_arr.length
+      words_hash = words_to_hash @words
+      @job_keyword_arr = get_keyword_arr words_hash
+
+      # @job_desc_string = get_job_description job_key
+      # @job_arr = string_to_arr @job_desc_string
+      # words_hash = words_to_hash @words
+      # puts words_hash
+      # @job_keyword_arr =
+      # puts words_hash.length
+      # get_job_keyword_arr words_hash
+      # puts "trying to put jobarr"
+      # puts @job_arr
+      # puts "this is right before the problem"
+      # puts @job_arr
+      # puts @job_descriptions_hash
+      jl = @job_arr.length
+
       unless @resume_array.nil?
         rl = @resume_array.length
       @comparison_arr = @job_arr & @resume_array
+      @keyword_comparison_arr = @job_keyword_arr & @resume_keywords
+      @jrl = jl + rl
       end
       unless @comparison_arr.nil?
+        kl = @keyword_comparison_arr.length * 2
         cl = @comparison_arr.length
-      percent_shared_words = (cl.to_f / @jl.to_f) * 100
-      percent_shared_words.round
+        percent_shared_words = ((cl.to_f / jl.to_f) * 100) + kl
+        percent_shared_words.round
+        # (@keyword_comparison_arr.length * 2) + cl
+        # @keyword_comparison_arr.length
       end
+
     end
 
     # associates matchscore with jobs
