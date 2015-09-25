@@ -12,7 +12,7 @@ class MainController < ApplicationController
 
     @full_results = search_results[0..20].each_slice(3).to_a
 
-    search_results = search_results[0..4]
+    search_results = search_results[0..5]
 
     @search_results = search_results
     @i = 0

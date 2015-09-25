@@ -11,7 +11,7 @@
       </div>
     <% end %>
     <div class="row">
-      <form class="center-block form-inline search-form" role="search">
+      <form class="center-block form-inline search-form" role="search" id="search-form">
         <div class="form-group">
           <%= bootstrap_form_tag do |f| %>
             <%= f.text_field :skill, label: "skill", class: "form-control" %>
@@ -46,6 +46,8 @@
             <h4 class='text-center'>
               <% job_key = result["jobkey"] %>
               <%= link_to result["jobtitle"], "http://www.indeed.com/viewjob?jk=#{job_key}",:target => '_blank', class: 'job-title' %>
+            </h4>
+            <h4 class="company"><%= job_key = result["company"] %>
               <% if @current_user %>
                 <a href="/add_job/<%= result['jobkey'] %> "><button class='icon-pad btn btn-success btn-xs glyphicon glyphicon-plus' data-toggle="tooltip" title="Add to Job Board"></button></a>
               <% else %>

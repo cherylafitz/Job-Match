@@ -54,19 +54,6 @@ class ProfileController < ApplicationController
       @job_arr = string_to_arr @job_desc_string
       words_hash = words_to_hash @words
       @job_keyword_arr = get_keyword_arr words_hash
-
-      # @job_desc_string = get_job_description job_key
-      # @job_arr = string_to_arr @job_desc_string
-      # words_hash = words_to_hash @words
-      # puts words_hash
-      # @job_keyword_arr =
-      # puts words_hash.length
-      # get_job_keyword_arr words_hash
-      # puts "trying to put jobarr"
-      # puts @job_arr
-      # puts "this is right before the problem"
-      # puts @job_arr
-      # puts @job_descriptions_hash
       jl = @job_arr.length
 
       unless @resume_array.nil?

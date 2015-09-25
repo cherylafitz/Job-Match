@@ -38,6 +38,13 @@ $(function(){
     $(resumeLink).addClass('active');
   }
 
+  // scroll to results
+  if (gon.job_desc) {
+    $('html, body').animate({
+      scrollTop: $('.clouds').offset().top
+    }, 700);
+  }
+
   // cloud generation
   var word_array = gon.job_desc
   if (word_array) {
@@ -48,9 +55,6 @@ $(function(){
         });
         i += 1;
       });
-      if ($('.clouds').parent().hasClass('main')) {
-      $('.clouds').find('.job-desc').last().closest('div.col-md-6').addClass('last-cloud col-md-offset-3 col-lg-offset-3')
-      }
    }
   if (gon.resume) {
     word_array = gon.resume
